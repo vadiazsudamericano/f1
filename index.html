@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórmula 1 - Pasión por la Velocidad</title>
+    <title>Fórmula 1 - Escuderías Oficiales</title>
     <style>
         /* --- ESTILOS CSS --- */
         :root {
@@ -79,7 +79,7 @@
 
         /* Sección Hero */
         .hero {
-            height: 100vh;
+            height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(21,21,30,1)), url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
@@ -129,7 +129,7 @@
             transform: scale(1.05);
         }
 
-        /* Sección de Secciones/Cards */
+        /* Sección de Escuderías */
         .container {
             max-width: 1200px;
             margin: 80px auto;
@@ -149,42 +149,74 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
         .card {
             background-color: var(--f1-gray);
-            border-radius: 5px;
+            border-radius: 6px;
             overflow: hidden;
-            transition: transform 0.3s;
-            border-bottom: 3px solid transparent;
+            transition: transform 0.3s, border-color 0.3s;
+            border-bottom: 4px solid var(--f1-red);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            border-bottom: 3px solid var(--f1-red);
         }
 
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .card-header {
+            background-color: #0b0b10;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2e2e3e;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-badge {
+            font-size: 0.75rem;
+            background-color: var(--f1-red);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         .card-content {
             padding: 20px;
         }
 
-        .card-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+        .drivers-list {
+            list-style: none;
+            margin-bottom: 15px;
         }
 
-        .card-content p {
-            color: var(--f1-text-gray);
+        .drivers-list li {
             font-size: 0.95rem;
+            color: var(--f1-text-gray);
+            margin-bottom: 5px;
+        }
+
+        .drivers-list li strong {
+            color: var(--f1-light);
+        }
+
+        .team-info {
+            font-size: 0.9rem;
+            color: var(--f1-text-gray);
+            border-top: 1px solid #2e2e3e;
+            padding-top: 12px;
         }
 
         /* Footer */
@@ -195,6 +227,7 @@
             border-top: 1px solid #222;
             color: var(--f1-text-gray);
             font-size: 0.9rem;
+            margin-top: 60px;
         }
 
         footer span {
@@ -212,7 +245,6 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#teams">Escuderías</a></li>
-                <li><a href="#calendar">Calendario</a></li>
             </ul>
         </nav>
     </header>
@@ -220,41 +252,164 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>Siente la velocidad de la <span>Fórmula 1</span></h1>
-            <p>Vive la máxima categoría del automovilismo mundial. Análisis, escuderías, tecnología y toda la adrenalina en un solo lugar.</p>
-            <a href="#teams" class="btn">Explorar Escuderías</a>
+            <h1>Escuderías de la <span>Fórmula 1</span></h1>
+            <p>Conoce los equipos oficiales, sus pilotos principales y los detalles que dominan la parrilla de salida esta temporada.</p>
+            <a href="#teams" class="btn">Ver Parrilla</a>
         </div>
     </section>
 
-    <!-- Contenido Principal -->
+    <!-- Contenido Principal: Escuderías -->
     <div id="teams" class="container">
-        <h2 class="section-title">Lo más destacado</h2>
+        <h2 class="section-title">Parrilla de Escuderías</h2>
         
         <div class="grid">
-            <!-- Card 1 -->
+            <!-- Red Bull Racing -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=80" alt="Monoplaza de F1">
+                <div class="card-header">
+                    <span class="team-name">Red Bull Racing</span>
+                    <span class="team-badge">PWR Híbrida</span>
+                </div>
                 <div class="card-content">
-                    <h3>Ingeniería Avanzada</h3>
-                    <p>Los monoplazas combinan aerodinámica de vanguardia y unidades de potencia híbridas capaces de superar los 350 km/h.</p>
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Max Verstappen</li>
+                        <li><strong>Piloto 2:</strong> Sergio Pérez / Liam Lawson</li>
+                    </ul>
+                    <p class="team-info">Base: Milton Keynes, Reino Unido</p>
                 </div>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Ferrari -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80" alt="Circuito de carrera">
+                <div class="card-header">
+                    <span class="team-name" style="color: #ff2800;">Scuderia Ferrari</span>
+                    <span class="team-badge">Ferrari</span>
+                </div>
                 <div class="card-content">
-                    <h3>Circuitos Legendarios</h3>
-                    <p>Desde Mónaco hasta Silverstone, los pilotos desafían los trazados más icónicos y exigentes del planeta.</p>
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Charles Leclerc</li>
+                        <li><strong>Piloto 2:</strong> Lewis Hamilton</li>
+                    </ul>
+                    <p class="team-info">Base: Maranello, Italia</p>
                 </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Mercedes -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1541447271487-09612b3f49f7?auto=format&fit=crop&w=600&q=80" alt="Equipo en pits">
+                <div class="card-header">
+                    <span class="team-name" style="color: #00d2be;">Mercedes</span>
+                    <span class="team-badge">Mercedes</span>
+                </div>
                 <div class="card-content">
-                    <h3>Trabajo en Equipo</h3>
-                    <p>Paradas en boxes en menos de 2 segundos. Milisegundos que deciden campeonatos mundiales enteros.</p>
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> George Russell</li>
+                        <li><strong>Piloto 2:</strong> Andrea Kimi Antonelli</li>
+                    </ul>
+                    <p class="team-info">Base: Brackley, Reino Unido</p>
+                </div>
+            </div>
+
+            <!-- McLaren -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="team-name" style="color: #ff8700;">McLaren</span>
+                    <span class="team-badge">Mercedes</span>
+                </div>
+                <div class="card-content">
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Lando Norris</li>
+                        <li><strong>Piloto 2:</strong> Oscar Piastri</li>
+                    </ul>
+                    <p class="team-info">Base: Woking, Reino Unido</p>
+                </div>
+            </div>
+
+            <!-- Aston Martin -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="team-name" style="color: #006f62;">Aston Martin</span>
+                    <span class="team-badge">Mercedes</span>
+                </div>
+                <div class="card-content">
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Fernando Alonso</li>
+                        <li><strong>Piloto 2:</strong> Lance Stroll</li>
+                    </ul>
+                    <p class="team-info">Base: Silverstone, Reino Unido</p>
+                </div>
+            </div>
+
+            <!-- Alpine -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="team-name" style="color: #0090ff;">Alpine</span>
+                    <span class="team-badge">Renault</span>
+                </div>
+                <div class="card-content">
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Pierre Gasly</li>
+                        <li><strong>Piloto 2:</strong> Jack Doohan</li>
+                    </ul>
+                    <p class="team-info">Base: Enstone, Reino Unido</p>
+                </div>
+            </div>
+
+            <!-- Williams -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="team-name" style="color: #005aff;">Williams</span>
+                    <span class="team-badge">Mercedes</span>
+                </div>
+                <div class="card-content">
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Alexander Albon</li>
+                        <li><strong>Piloto 2:</strong> Carlos Sainz</li>
+                    </ul>
+                    <p class="team-info">Base: Grove, Reino Unido</p>
+                </div>
+            </div>
+
+            <!-- VCARB -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="team-name" style="color: #6692ff;">RB / VCARB</span>
+                    <span class="team-badge">Honda RBPT</span>
+                </div>
+                <div class="card-content">
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Yuki Tsunoda</li>
+                        <li><strong>Piloto 2:</strong> Isack Hadjar</li>
+                    </ul>
+                    <p class="team-info">Base: Faenza, Italia</p>
+                </div>
+            </div>
+
+            <!-- Sauber / Audi -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="team-name" style="color: #52e252;">Sauber</span>
+                    <span class="team-badge">Ferrari</span>
+                </div>
+                <div class="card-content">
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Nico Hülkenberg</li>
+                        <li><strong>Piloto 2:</strong> Gabriel Bortoleto</li>
+                    </ul>
+                    <p class="team-info">Base: Hinwil, Suiza</p>
+                </div>
+            </div>
+
+            <!-- Haas -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="team-name" style="color: #b6babd;">Haas F1 Team</span>
+                    <span class="team-badge">Ferrari</span>
+                </div>
+                <div class="card-content">
+                    <ul class="drivers-list">
+                        <li><strong>Piloto 1:</strong> Esteban Ocon</li>
+                        <li><strong>Piloto 2:</strong> Oliver Bearman</li>
+                    </ul>
+                    <p class="team-info">Base: Kannapolis, Estados Unidos</p>
                 </div>
             </div>
         </div>
@@ -262,7 +417,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <span>F1 Zone</span>. Página web creada con fines demostrativos.</p>
+        <p>&copy; 2026 <span>F1 Zone</span>. Todos los derechos reservados.</p>
     </footer>
 
 </body>
