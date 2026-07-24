@@ -1,164 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fórmula 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula 1 - Pasión por la Velocidad</title>
+    <style>
+        /* --- ESTILOS CSS --- */
+        :root {
+            --f1-red: #e10600;
+            --f1-dark: #15151e;
+            --f1-gray: #1f1f2b;
+            --f1-light: #ffffff;
+            --f1-text-gray: #94949b;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body{
-    background:#111;
-    color:white;
-}
+        body {
+            background-color: var(--f1-dark);
+            color: var(--f1-light);
+            line-height: 1.6;
+        }
 
-header{
-    background:linear-gradient(to right,#d90429,#7a0000);
-    padding:20px;
-    text-align:center;
-}
+        /* Header y Navegación */
+        header {
+            background-color: rgba(21, 21, 30, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 3px solid var(--f1-red);
+        }
 
-header h1{
-    font-size:40px;
-}
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
 
-nav{
-    background:#000;
-    padding:15px;
-    text-align:center;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--f1-light);
+            font-style: italic;
+        }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 20px;
-    font-weight:bold;
-    transition:.3s;
-}
+        .logo span {
+            color: var(--f1-red);
+        }
 
-nav a:hover{
-    color:#ff3b3b;
-}
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
 
-.hero{
-    height:500px;
-    background:url("https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1600&q=80") center/cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+        .nav-links a {
+            color: var(--f1-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
 
-.hero h2{
-    background:rgba(0,0,0,.6);
-    padding:20px;
-    border-radius:10px;
-    font-size:45px;
-}
+        .nav-links a:hover {
+            color: var(--f1-red);
+        }
 
-.container{
-    width:90%;
-    margin:auto;
-    padding:50px 0;
-}
+        /* Sección Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(21,21,30,1)), url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
 
-.cards{
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
+        .hero-content h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
 
-.card{
-    background:#1e1e1e;
-    width:300px;
-    border-radius:10px;
-    overflow:hidden;
-    transition:.3s;
-}
+        .hero-content h1 span {
+            color: var(--f1-red);
+        }
 
-.card:hover{
-    transform:translateY(-10px);
-}
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--f1-text-gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
+        .btn {
+            background-color: var(--f1-red);
+            color: var(--f1-light);
+            padding: 12px 30px;
+            border: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
 
-.card h3{
-    padding:15px;
-    color:#ff3b3b;
-}
+        .btn:hover {
+            background-color: #b30500;
+            transform: scale(1.05);
+        }
 
-.card p{
-    padding:0 15px 20px;
-}
+        /* Sección de Secciones/Cards */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
 
-footer{
-    background:#000;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-</style>
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-style: italic;
+            border-left: 5px solid var(--f1-red);
+            display: inline-block;
+            padding-left: 15px;
+        }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--f1-gray);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--f1-red);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card-content p {
+            color: var(--f1-text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0b10;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #222;
+            color: var(--f1-text-gray);
+            font-size: 0.9rem;
+        }
+
+        footer span {
+            color: var(--f1-light);
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>🏎 Fórmula 1</h1>
-    <p>La máxima categoría del automovilismo</p>
-</header>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">F1 <span>ZONE</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#teams">Escuderías</a></li>
+                <li><a href="#calendar">Calendario</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<nav>
-    <a href="#">Inicio</a>
-    <a href="#">Equipos</a>
-    <a href="#">Pilotos</a>
-    <a href="#">Calendario</a>
-</nav>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Siente la velocidad de la <span>Fórmula 1</span></h1>
+            <p>Vive la máxima categoría del automovilismo mundial. Análisis, escuderías, tecnología y toda la adrenalina en un solo lugar.</p>
+            <a href="#teams" class="btn">Explorar Escuderías</a>
+        </div>
+    </section>
 
-<section class="hero">
-    <h2>Velocidad • Pasión • Competencia</h2>
-</section>
+    <!-- Contenido Principal -->
+    <div id="teams" class="container">
+        <h2 class="section-title">Lo más destacado</h2>
+        
+        <div class="grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=80" alt="Monoplaza de F1">
+                <div class="card-content">
+                    <h3>Ingeniería Avanzada</h3>
+                    <p>Los monoplazas combinan aerodinámica de vanguardia y unidades de potencia híbridas capaces de superar los 350 km/h.</p>
+                </div>
+            </div>
 
-<section class="container">
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80" alt="Circuito de carrera">
+                <div class="card-content">
+                    <h3>Circuitos Legendarios</h3>
+                    <p>Desde Mónaco hasta Silverstone, los pilotos desafían los trazados más icónicos y exigentes del planeta.</p>
+                </div>
+            </div>
 
-<h2 style="text-align:center; margin-bottom:30px;">Equipos Destacados</h2>
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541447271487-09612b3f49f7?auto=format&fit=crop&w=600&q=80" alt="Equipo en pits">
+                <div class="card-content">
+                    <h3>Trabajo en Equipo</h3>
+                    <p>Paradas en boxes en menos de 2 segundos. Milisegundos que deciden campeonatos mundiales enteros.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="cards">
-
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/en/f/fd/Red_Bull_Racing_logo.svg" alt="">
-<h3>Red Bull Racing</h3>
-<p>Uno de los equipos más dominantes de la Fórmula 1 en los últimos años gracias a su gran rendimiento.</p>
-</div>
-
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Ferrari-Logo.svg" alt="">
-<h3>Ferrari</h3>
-<p>La escudería más histórica del campeonato, reconocida por su icónico color rojo.</p>
-</div>
-
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Mercedes-Benz_in_Formula_One_logo.svg" alt="">
-<h3>Mercedes AMG</h3>
-<p>Equipo que dominó gran parte de la era híbrida gracias a su innovación tecnológica.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-    © 2026 - Página sencilla sobre Fórmula 1
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>F1 Zone</span>. Página web creada con fines demostrativos.</p>
+    </footer>
 
 </body>
 </html>
